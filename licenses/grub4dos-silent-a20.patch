@@ -1,0 +1,10 @@
+Source: chenall/grub4dos commit 0da21fe (2020-08-09).
+The source archive and GPL license remain alongside this patch.
+Applied equivalently to the generated legacy.bootmgr by quiet_boot.py.
+Only A20 diagnostic output is disabled; A20 remains enabled.
+
+--- a/stage2/asm.S
++++ b/stage2/asm.S
+@@ -674 +674 @@
+-	movw	$0x0101, %dx		# DL=1(enable A20), DH=1(debug on)
++	movw	$0x0001, %dx		# DL=1(enable A20), DH=0(debug off)

@@ -1,0 +1,11 @@
+Source: matching Fedora GRUB 2.12-64.fc44 / 2.12-56.fc44 sources.
+Both complete source RPMs and GPL license remain alongside this patch.
+The equivalent same-size empty-string transformation is applied only to
+the temporary unsigned BIOS kernel.img by quiet_boot.py before grub-mkimage.
+Signed UEFI GRUB and all locked upstream inputs remain unmodified.
+
+--- a/grub-core/kern/main.c
++++ b/grub-core/kern/main.c
+@@ -277 +277 @@
+-  grub_printf ("Welcome to GRUB!\n\n");
++  grub_printf ("");

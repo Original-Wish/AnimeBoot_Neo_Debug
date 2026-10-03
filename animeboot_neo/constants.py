@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 原心
+APP_VERSION = "2610.3"
+APP_EDITION = "Debug"
+THEME_ROOT = "/AnimeBootNeo/theme"
+MSFT_UEFI_CA_2011_SHA1 = "46DEF63B5CE61CF8BA0DE2E6639C1019D0ED14F3"
+MSFT_UEFI_CA_2023_SHA1 = "B5EEB4A6706048073F0ED296E7F580A790B59EAA"
+BASE_WIDTH = 1024
+BASE_HEIGHT = 768
+COMMON_RESOLUTIONS = [
+    (1024, 768),
+    (1152, 864),
+    (1280, 720),
+    (1280, 768),
+    (1280, 800),
+    (1280, 1024),
+    (1360, 768),
+    (1366, 768),
+    (1440, 900),
+    (1600, 900),
+    (1600, 1200),
+    (1680, 1050),
+    (1920, 1080),
+    (1920, 1200),
+    (2048, 1152),
+    (2560, 1080),
+    (2560, 1440),
+    (2560, 1600),
+    (3440, 1440),
+    (3840, 2160),
+]

@@ -1,0 +1,726 @@
+﻿source,symbol,line,documentation
+animeboot_neo/animation.py,AnimationError,43,
+animeboot_neo/animation.py,_check_cancel,47,
+animeboot_neo/animation.py,animation_enabled,62,
+animeboot_neo/animation.py,_natural_key,67,
+animeboot_neo/animation.py,_even_indices,72,
+animeboot_neo/animation.py,_selected_indices,81,
+animeboot_neo/animation.py,_image_timeline,90,
+animeboot_neo/animation.py,_cached_image_timeline,96,"Return (frame_count, durations_ms, duration_seconds, average_fps)."
+animeboot_neo/animation.py,_gif_frame_durations,127,
+animeboot_neo/animation.py,_gif_control_info,133,Read GIF control blocks without decoding/compositing its image pixels.
+animeboot_neo/animation.py,_probe_video_metadata,189,Probe FPS/duration without decoding the whole video.
+animeboot_neo/animation.py,probe_animation_source,231,Return lightweight source metadata for the animation settings UI.
+animeboot_neo/animation.py,_image_source_indices,252,
+animeboot_neo/animation.py,_frames_from_image,275,
+animeboot_neo/animation.py,_frames_from_directory,292,
+animeboot_neo/animation.py,_find_ffmpeg,315,"Locate bundled FFmpeg, then the installed source-run dependency."
+animeboot_neo/animation.py,_native_video_rate_selected,353,Return True when the UI value is effectively the video's native rate.
+animeboot_neo/animation.py,_frames_from_video,373,Decode video frames through a raw RGBA pipe instead of temporary PNGs.
+animeboot_neo/animation.py,_load_frames,467,
+animeboot_neo/animation.py,_fit_frame,478,
+animeboot_neo/animation.py,render_first_frame_preview,497,Return the first source frame after the exact build-time fit operation.
+animeboot_neo/animation.py,_qoi_hash,523,
+animeboot_neo/animation.py,encode_qoi_rgba,527,Encode one RGBA Pillow image as a standards-compatible QOI stream.
+animeboot_neo/animation.py,encode_jpeg_rgb,630,Encode one fitted frame as baseline JPEG for the experimental codec.
+animeboot_neo/animation.py,_planned_frame_count,647,
+animeboot_neo/animation.py,_frame_content_metrics,666,Return lightweight spatial-complexity metrics for codec recommendation.
+animeboot_neo/animation.py,_recommend_animation_codec,726,
+animeboot_neo/animation.py,estimate_animation_codec_sizes,746,Estimate Raw-QOI and/or JPEG Chunk32 payload sizes without stalling UI.
+animeboot_neo/animation.py,_available_worker_memory_limit,896,Return a conservative process-count cap derived from physical RAM.
+animeboot_neo/animation.py,_qoi_parallel_worker_count,933,Choose a CPU-saturating but memory-safe number of QOI encoders.
+animeboot_neo/animation.py,_qoi_worker_command,947,
+animeboot_neo/animation.py,qoi_batch_worker_main,954,Private subprocess entry point used only while *building* animations.
+animeboot_neo/animation.py,_jpeg_worker_command,978,
+animeboot_neo/animation.py,jpeg_batch_worker_main,985,Private subprocess entry point for build-time JPEG frame encoding.
+animeboot_neo/animation.py,_terminate_processes,1010,
+animeboot_neo/animation.py,_wait_encoding_workers,1032,"Bound stalled children and drain their output to files, never full pipes."
+animeboot_neo/animation.py,_encode_qoi_files_parallel,1054,Encode fitted PNG frames in independent worker processes.
+animeboot_neo/animation.py,_encode_jpeg_files_parallel,1120,Encode fitted PNG frames as baseline JPEG in independent processes.
+animeboot_neo/animation.py,_sha256_file,1181,
+animeboot_neo/animation.py,_png_preview_worker_count,1193,Use a few concurrent Pillow PNG writers without exploding 32-bit RAM.
+animeboot_neo/animation.py,_save_preview_png,1212,
+animeboot_neo/animation.py,_save_raw_source_frame,1223,Temporary exact RGBA pixels; no serial PNG compression or alpha loss.
+animeboot_neo/animation.py,_source_frame_size,1237,
+animeboot_neo/animation.py,_open_source_frame,1250,
+animeboot_neo/animation.py,_finish_oldest_png_future,1260,
+animeboot_neo/animation.py,_fit_and_write_frame,1271,Fit once; native Pillow workers encode JPEG without rereading PNG.
+animeboot_neo/animation.py,frame_pipeline_worker_main,1291,Independent 32-bit address space for large-frame fit/PNG/codec jobs.
+animeboot_neo/animation.py,_frame_worker_command,1312,
+animeboot_neo/animation.py,_frame_process_worker_count,1319,
+animeboot_neo/animation.py,_process_frame_files,1342,
+animeboot_neo/animation.py,render_linux_animation_payload_file,1388,Render experimental ANBF v2 with per-frame QOI or JPEG payloads.
+animeboot_neo/archive.py,InitramfsPatchError,16,
+animeboot_neo/archive.py,_align4,20,
+animeboot_neo/archive.py,FileSlice,24,
+animeboot_neo/archive.py,FileSlice.__init__,27,
+animeboot_neo/archive.py,CpioEntry,35,
+animeboot_neo/archive.py,CpioEntry.__init__,41,
+animeboot_neo/archive.py,_read_exact,58,
+animeboot_neo/archive.py,parse_newc,70,Compatibility parser for callers that already have a CPIO byte string.
+animeboot_neo/archive.py,parse_newc_file,100,Parse metadata while keeping every member as a slice of a disk file.
+animeboot_neo/archive.py,_hex8,135,
+animeboot_neo/archive.py,_source_size,139,
+animeboot_neo/archive.py,_source_sha256,145,
+animeboot_neo/archive.py,_source_to_bytes,162,
+animeboot_neo/archive.py,_write_source,170,
+animeboot_neo/archive.py,build_newc,185,Compatibility in-memory builder; production uses streaming XZ output.
+animeboot_neo/archive.py,_write_padding,192,
+animeboot_neo/archive.py,_write_newc,197,
+animeboot_neo/archive.py,_ensure_file_slice,222,
+animeboot_neo/archive.py,_parse_anbf_frame_slices,231,"Return (header_bytes, codec, frame_slices) without materializing ANBF."
+animeboot_neo/archive.py,_compress_jpeg_chunk,268,
+animeboot_neo/archive.py,_build_jpeg_chunked_xz_container,289,Build JPEG chunks that can be inflated concurrently on Linux.
+animeboot_neo/archive.py,_verify_jpeg_chunked_xz_matches_source,376,
+animeboot_neo/boot_space.py,allocation_unit,19,
+animeboot_neo/boot_space.py,safe_path,29,
+animeboot_neo/boot_space.py,_tree_entries,46,Snapshot every file and directory without following reparse points.
+animeboot_neo/boot_space.py,tree_files,72,Validate the entire tree before either accounting for or deleting it.
+animeboot_neo/boot_space.py,allocated_bytes,77,
+animeboot_neo/boot_space.py,installed_space,92,
+animeboot_neo/boot_space.py,remove_owned_tree,130,"Remove an owned tree, optionally keeping a final recovery checkpoint."
+animeboot_neo/builder.py,BuildError,26,
+animeboot_neo/builder.py,_boot_project,33,
+animeboot_neo/builder.py,_build_bios,41,
+animeboot_neo/builder.py,_write_manifest,69,
+animeboot_neo/builder.py,_verify_grub_script,78,
+animeboot_neo/builder.py,bind_payload,91,Prepare and verify a target-specific package before changing boot files.
+animeboot_neo/builder.py,build_payload,126,
+animeboot_neo/builder.py,verify_payload,227,
+animeboot_neo/canvas_geometry.py,_clamp,18,
+animeboot_neo/canvas_geometry.py,rotated_corners,22,Return TL/TR/BR/BL corners after rotating around the logical centre.
+animeboot_neo/canvas_geometry.py,has_corner_in_canvas,45,True when at least one rotated corner is still on/in the canvas.
+animeboot_neo/canvas_geometry.py,clamp_move_delta,57,Clamp a drag delta using the editor's visibility rule.
+animeboot_neo/canvas_geometry.py,_rot_local,86,
+animeboot_neo/canvas_geometry.py,_rot_world,92,
+animeboot_neo/canvas_geometry.py,_midpoint,98,
+animeboot_neo/canvas_geometry.py,resize_from_rotated_handle,103,Resize from one of eight rotated handles: TL/T/TR/R/BR/B/BL/L.
+animeboot_neo/canvas_geometry.py,resize_from_rotated_corner,255,Backward-compatible four-corner wrapper used by older tests/plugins.
+animeboot_neo/canvas_manager.py,CanvasManagerBar,8,
+animeboot_neo/canvas_manager.py,CanvasManagerBar.__init__,9,
+animeboot_neo/canvas_manager.py,CanvasManagerBar._reflow,26,
+animeboot_neo/canvas_manager.py,CanvasManagerBar.resizeEvent,36,
+animeboot_neo/deployment.py,_mount,27,
+animeboot_neo/deployment.py,_atomic,34,
+animeboot_neo/deployment.py,_json,60,
+animeboot_neo/deployment.py,_atomic_file,62,Stream large initramfs files without materialising them in 32-bit Python.
+animeboot_neo/deployment.py,_read_state,87,
+animeboot_neo/deployment.py,_safe,105,
+animeboot_neo/deployment.py,probe_boot_partition_space,110,
+animeboot_neo/deployment.py,preflight_install_boot_item_standalone,123,
+animeboot_neo/deployment.py,_trust_check,131,
+animeboot_neo/deployment.py,filesystem_boot_binding,139,Convert the target BPB serial to the exact UUID used by both GRUBs.
+animeboot_neo/deployment.py,_prepare_legacy_file,152,
+animeboot_neo/deployment.py,_rollback_files,176,
+animeboot_neo/deployment.py,_verify,197,
+animeboot_neo/deployment.py,_prepare_legacy_file_identity,222,
+animeboot_neo/deployment.py,install_boot_item_standalone,230,
+animeboot_neo/deployment.py,_remove_empty,354,
+animeboot_neo/deployment.py,_verify_windows_restored,360,Verify restored shared files without requiring backups already reclaimed.
+animeboot_neo/deployment.py,_uninstall,378,
+animeboot_neo/deployment.py,uninstall_boot_item_official_equivalent,424,
+animeboot_neo/deployment.py,apply_final_efi_assets,436,
+animeboot_neo/deployment.py,set_installed_runtime_fps,443,
+animeboot_neo/deployment.py,cleanup_action_temp,463,Remove abandoned result files created by a cancelled elevated action.
+animeboot_neo/deployment.py,run_payload_action,475,
+animeboot_neo/fonts.py,installed_font_paths,23,
+animeboot_neo/fonts.py,_coverage,56,
+animeboot_neo/fonts.py,coverage,64,
+animeboot_neo/fonts.py,common_chinese,74,
+animeboot_neo/fonts.py,is_chinese_font,85,
+animeboot_neo/fonts.py,font_catalog_cache_path,93,
+animeboot_neo/fonts.py,scan_font_catalog,99,Scan face 0 off the GUI thread; reuse unchanged accepted/rejected faces.
+animeboot_neo/fonts.py,supports_text,160,
+animeboot_neo/fonts.py,resolve_font,166,
+animeboot_neo/grub_config.py,static_handoff_strategy,22,"Fix the handoff strategy at build time, using all three UI choices."
+animeboot_neo/grub_config.py,validate_boot_binding,32,
+animeboot_neo/grub_config.py,create_blank_grubenv,43,
+animeboot_neo/grub_config.py,valid_grubenv,49,
+animeboot_neo/grub_config.py,embedded_config,66,
+animeboot_neo/grub_config.py,generate_config,80,
+animeboot_neo/image_extract.py,extract_gif_pngs,18,
+animeboot_neo/legacy_file.py,partition_layout,23,Validate only the current active-partition bootstrap layout.
+animeboot_neo/legacy_file.py,make_bootmgr,40,
+animeboot_neo/legacy_file.py,validate_windows_bootmgr,71,
+animeboot_neo/legacy_file.py,attributes,82,
+animeboot_neo/legacy_file.py,_file_error,94,
+animeboot_neo/legacy_file.py,_restore_privilege,102,"Enable an existing elevated token's restore right, then restore it."
+animeboot_neo/legacy_file.py,_handle_information,153,
+animeboot_neo/legacy_file.py,_set_attributes_protected,162,
+animeboot_neo/legacy_file.py,check_readonly_access,180,Read-only preflight: require attribute access before deploying resources.
+animeboot_neo/legacy_file.py,set_attributes,197,
+animeboot_neo/legacy_file.py,replace_file,223,"Atomically rename an owned, verified temporary file over its target."
+animeboot_neo/legacy_file.py,make_boot_readable,256,Normalize an owned temporary file before publishing a BIOS boot file.
+animeboot_neo/legacy_file.py,verify_boot_readable,292,
+animeboot_neo/legacy_file.py,_env_has_disk_allocation,299,
+animeboot_neo/legacy_file.py,commit_mbr,318,
+animeboot_neo/legacy_file.py,restore_mbr,336,
+animeboot_neo/project.py,ProjectError,21,
+animeboot_neo/project.py,countdown_key,36,Map a native timeout style to its existing canvas geometry object.
+animeboot_neo/project.py,countdown_display_name,45,
+animeboot_neo/project.py,new_object_id,49,
+animeboot_neo/project.py,default_project,53,
+animeboot_neo/project.py,_ensure_ids,167,
+animeboot_neo/project.py,object_key,177,
+animeboot_neo/project.py,find_dynamic_item,181,
+animeboot_neo/project.py,static_object_keys,194,
+animeboot_neo/project.py,normalize_layer_order,205,
+animeboot_neo/project.py,normalize_project,219,Normalize the current edition; never migrate an earlier project.
+animeboot_neo/project.py,_normalize_canvas_fields,268,
+animeboot_neo/project.py,prune_missing_image_objects,308,Remove canvas image objects whose external source files disappeared.
+animeboot_neo/project.py,_prune_canvas_images,328,
+animeboot_neo/project.py,prune_missing_animation_source,357,Recover a saved project when its external animation source disappeared.
+animeboot_neo/project.py,save_project,394,
+animeboot_neo/project.py,load_project,402,
+animeboot_neo/project.py,validate_project,431,
+animeboot_neo/project.py,_validate_canvas_resources,494,
+animeboot_neo/qt_gui.py,_application_icon_path,139,
+animeboot_neo/qt_gui.py,_pending_registry_key,149,
+animeboot_neo/qt_gui.py,_read_pending_registry_path,153,Read only this version's failed-install continuation pointer.
+animeboot_neo/qt_gui.py,_write_pending_registry_path,166,
+animeboot_neo/qt_gui.py,_clear_pending_registry_path,174,"Remove the retry value and empty current-version keys, never old keys."
+animeboot_neo/qt_gui.py,_is_process_elevated,205,Return True when the current Windows GUI already has admin rights.
+animeboot_neo/qt_gui.py,_startup_elevated_build_state_path,215,
+animeboot_neo/qt_gui.py,_write_elevated_build_state,229,
+animeboot_neo/qt_gui.py,_read_elevated_build_state,244,
+animeboot_neo/qt_gui.py,_launch_self_elevated_for_build,266,
+animeboot_neo/qt_gui.py,BuildLogEdit,543,Follow new log entries while leaving a held scrollbar under user control.
+animeboot_neo/qt_gui.py,BuildLogEdit.append_log,546,
+animeboot_neo/qt_gui.py,RoundedScrollBarPaintFilter,556,Paint scrollbar tracks/thumbs ourselves so rounded end-caps stay round.
+animeboot_neo/qt_gui.py,RoundedScrollBarPaintFilter.eventFilter,567,
+animeboot_neo/qt_gui.py,RoundedScrollBarPaintFilter._theme_colors,574,
+animeboot_neo/qt_gui.py,RoundedScrollBarPaintFilter._surround_color,583,Return an opaque colour for the four pixels outside rounded caps.
+animeboot_neo/qt_gui.py,RoundedScrollBarPaintFilter._paint_scrollbar,615,
+animeboot_neo/qt_gui.py,apply_application_theme,668,
+animeboot_neo/qt_gui.py,_icon,773,Return stable vector-like icons independent of the active Qt theme.
+animeboot_neo/qt_gui.py,_file_map,895,
+animeboot_neo/qt_gui.py,_pil_to_pixmap,903,
+animeboot_neo/qt_gui.py,_spec_for_key,910,
+animeboot_neo/qt_gui.py,_object_name,916,
+animeboot_neo/qt_gui.py,_ThemedIndicatorMixin,935,
+animeboot_neo/qt_gui.py,_ThemedIndicatorMixin._indicator_theme,938,
+animeboot_neo/qt_gui.py,_ThemedIndicatorMixin._indicator_colors,943,
+animeboot_neo/qt_gui.py,_ThemedIndicatorMixin._draw_indicator_chevron,971,
+animeboot_neo/qt_gui.py,_ThemedIndicatorMixin._outer_control_path,980,
+animeboot_neo/qt_gui.py,_ThemedIndicatorMixin._paint_indicator_segment,986,
+animeboot_neo/qt_gui.py,_ThemedIndicatorMixin._paint_control_outline,1000,
+animeboot_neo/qt_gui.py,ThemedComboBox,1007,
+animeboot_neo/qt_gui.py,ThemedComboBox.__init__,1008,
+animeboot_neo/qt_gui.py,ThemedComboBox.setEditable,1014,
+animeboot_neo/qt_gui.py,ThemedComboBox.paintEvent,1021,
+animeboot_neo/qt_gui.py,_ThemedSpinMixin,1035,
+animeboot_neo/qt_gui.py,_ThemedSpinMixin._init_spin_indicator,1036,
+animeboot_neo/qt_gui.py,_ThemedSpinMixin._indicator_geometry,1045,
+animeboot_neo/qt_gui.py,_ThemedSpinMixin._indicator_at,1052,
+animeboot_neo/qt_gui.py,_ThemedSpinMixin._spin_mouse_move,1061,
+animeboot_neo/qt_gui.py,_ThemedSpinMixin._spin_mouse_press,1067,
+animeboot_neo/qt_gui.py,_ThemedSpinMixin._spin_mouse_release,1071,
+animeboot_neo/qt_gui.py,_ThemedSpinMixin._spin_leave,1076,
+animeboot_neo/qt_gui.py,_ThemedSpinMixin._paint_spin_indicators,1081,
+animeboot_neo/qt_gui.py,ThemedSpinBox,1100,
+animeboot_neo/qt_gui.py,ThemedSpinBox.__init__,1101,
+animeboot_neo/qt_gui.py,ThemedSpinBox.paintEvent,1106,
+animeboot_neo/qt_gui.py,ThemedSpinBox.mouseMoveEvent,1110,
+animeboot_neo/qt_gui.py,ThemedSpinBox.mousePressEvent,1114,
+animeboot_neo/qt_gui.py,ThemedSpinBox.mouseReleaseEvent,1118,
+animeboot_neo/qt_gui.py,ThemedSpinBox.leaveEvent,1122,
+animeboot_neo/qt_gui.py,ThemedDoubleSpinBox,1127,
+animeboot_neo/qt_gui.py,ThemedDoubleSpinBox.__init__,1128,
+animeboot_neo/qt_gui.py,ThemedDoubleSpinBox.paintEvent,1133,
+animeboot_neo/qt_gui.py,ThemedDoubleSpinBox.mouseMoveEvent,1137,
+animeboot_neo/qt_gui.py,ThemedDoubleSpinBox.mousePressEvent,1141,
+animeboot_neo/qt_gui.py,ThemedDoubleSpinBox.mouseReleaseEvent,1145,
+animeboot_neo/qt_gui.py,ThemedDoubleSpinBox.leaveEvent,1149,
+animeboot_neo/qt_gui.py,_contains_chinese_name,1209,
+animeboot_neo/qt_gui.py,_font_catalog,1216,"Build the filtered list on the background worker, never in a dialog."
+animeboot_neo/qt_gui.py,FontCatalogLoader,1246,
+animeboot_neo/qt_gui.py,FontCatalogLoader.__init__,1249,
+animeboot_neo/qt_gui.py,FontCatalogLoader.start,1256,
+animeboot_neo/qt_gui.py,FontCatalogLoader._scan,1264,
+animeboot_neo/qt_gui.py,FontCatalogLoader._completed,1275,
+animeboot_neo/qt_gui.py,_font_catalog_loader,1281,
+animeboot_neo/qt_gui.py,_localized_dialog_buttons,1289,
+animeboot_neo/qt_gui.py,_localize_color_dialog,1300,
+animeboot_neo/qt_gui.py,DialogLocalizationFilter,1336,
+animeboot_neo/qt_gui.py,DialogLocalizationFilter.eventFilter,1354,
+animeboot_neo/qt_gui.py,MultiLineTextDialog,1365,
+animeboot_neo/qt_gui.py,MultiLineTextDialog.__init__,1366,
+animeboot_neo/qt_gui.py,MultiLineTextDialog.value,1382,
+animeboot_neo/qt_gui.py,ItemChoiceDialog,1386,
+animeboot_neo/qt_gui.py,ItemChoiceDialog.__init__,1387,
+animeboot_neo/qt_gui.py,ItemChoiceDialog.value,1405,
+animeboot_neo/qt_gui.py,LayerListWidget,1416,
+animeboot_neo/qt_gui.py,LayerListWidget.__init__,1422,
+animeboot_neo/qt_gui.py,LayerListWidget.mouseDoubleClickEvent,1439,
+animeboot_neo/qt_gui.py,LayerListWidget.contextMenuEvent,1448,
+animeboot_neo/qt_gui.py,LayerListWidget.startDrag,1458,
+animeboot_neo/qt_gui.py,LayerListWidget.dragEnterEvent,1481,
+animeboot_neo/qt_gui.py,LayerListWidget.dragMoveEvent,1488,
+animeboot_neo/qt_gui.py,LayerListWidget._row_for_key,1496,
+animeboot_neo/qt_gui.py,LayerListWidget._countdown_present,1503,
+animeboot_neo/qt_gui.py,LayerListWidget._insertion_row,1509,
+animeboot_neo/qt_gui.py,LayerListWidget.dropEvent,1523,
+animeboot_neo/qt_gui.py,CanvasView,1566,
+animeboot_neo/qt_gui.py,CanvasView.__init__,1575,
+animeboot_neo/qt_gui.py,CanvasView.set_theme,1604,
+animeboot_neo/qt_gui.py,CanvasView.set_guides_visible,1611,
+animeboot_neo/qt_gui.py,CanvasView.guides_visible,1615,
+animeboot_neo/qt_gui.py,CanvasView.set_selected,1618,
+animeboot_neo/qt_gui.py,CanvasView.refresh,1622,
+animeboot_neo/qt_gui.py,CanvasView._update_drag_preview,1682,
+animeboot_neo/qt_gui.py,CanvasView._clear_selection_artifacts,1705,
+animeboot_neo/qt_gui.py,CanvasView._draw_guides,1725,
+animeboot_neo/qt_gui.py,CanvasView._selection_rect,1744,
+animeboot_neo/qt_gui.py,CanvasView._selection_polygon,1750,Return the visible selection outline using the renderer's rotation.
+animeboot_neo/qt_gui.py,CanvasView._handle_rects,1764,Return eight resize handles: four corners plus four edge midpoints.
+animeboot_neo/qt_gui.py,CanvasView._draw_selection,1784,
+animeboot_neo/qt_gui.py,CanvasView.fit_canvas,1813,
+animeboot_neo/qt_gui.py,CanvasView.zoom_in,1820,
+animeboot_neo/qt_gui.py,CanvasView.zoom_out,1826,
+animeboot_neo/qt_gui.py,CanvasView._reflow_top_bar,1832,
+animeboot_neo/qt_gui.py,CanvasView.resizeEvent,1846,
+animeboot_neo/qt_gui.py,CanvasView._hit_test,1852,
+animeboot_neo/qt_gui.py,CanvasView._selected_hit,1868,
+animeboot_neo/qt_gui.py,CanvasView._resize_handle_at,1880,
+animeboot_neo/qt_gui.py,CanvasView._update_cursor,1889,
+animeboot_neo/qt_gui.py,CanvasView._nudge_selected,1908,
+animeboot_neo/qt_gui.py,CanvasView.keyPressEvent,1934,
+animeboot_neo/qt_gui.py,CanvasView.keyReleaseEvent,1960,
+animeboot_neo/qt_gui.py,CanvasView.mousePressEvent,1969,
+animeboot_neo/qt_gui.py,CanvasView._apply_resize,1990,
+animeboot_neo/qt_gui.py,CanvasView.mouseMoveEvent,2011,
+animeboot_neo/qt_gui.py,CanvasView.mouseReleaseEvent,2041,
+animeboot_neo/qt_gui.py,CanvasView.leaveEvent,2052,
+animeboot_neo/qt_gui.py,CanvasView.mouseDoubleClickEvent,2057,
+animeboot_neo/qt_gui.py,CanvasView.contextMenuEvent,2071,
+animeboot_neo/qt_gui.py,ObjectPropertiesDialog,2121,
+animeboot_neo/qt_gui.py,ObjectPropertiesDialog.__init__,2122,
+animeboot_neo/qt_gui.py,ObjectPropertiesDialog._populate_fonts,2270,
+animeboot_neo/qt_gui.py,ObjectPropertiesDialog._rotation_coordinate_range_changed,2290,
+animeboot_neo/qt_gui.py,ObjectPropertiesDialog._sync_square_size,2297,
+animeboot_neo/qt_gui.py,ObjectPropertiesDialog._square_toggled,2309,
+animeboot_neo/qt_gui.py,ObjectPropertiesDialog._choose_color_for,2313,
+animeboot_neo/qt_gui.py,ObjectPropertiesDialog._choose_color,2323,
+animeboot_neo/qt_gui.py,ObjectPropertiesDialog.apply,2326,
+animeboot_neo/qt_gui.py,FirstFramePreviewDialog,2368,
+animeboot_neo/qt_gui.py,FirstFramePreviewDialog.__init__,2369,
+animeboot_neo/qt_gui.py,AnimationDialog,2411,
+animeboot_neo/qt_gui.py,AnimationDialog.__init__,2417,
+animeboot_neo/qt_gui.py,AnimationDialog.reject,2649,
+animeboot_neo/qt_gui.py,AnimationDialog.closeEvent,2655,
+animeboot_neo/qt_gui.py,AnimationDialog._accept_with_animation_reminder,2662,
+animeboot_neo/qt_gui.py,AnimationDialog._animation_source_is_valid,2692,
+animeboot_neo/qt_gui.py,AnimationDialog._set_enabled_checked,2696,
+animeboot_neo/qt_gui.py,AnimationDialog._confirm_enable_animation,2704,
+animeboot_neo/qt_gui.py,AnimationDialog._enabled_clicked,2726,
+animeboot_neo/qt_gui.py,AnimationDialog._sync_source_controls,2735,
+animeboot_neo/qt_gui.py,AnimationDialog._format_fps,2743,
+animeboot_neo/qt_gui.py,AnimationDialog._refresh_source_metadata,2750,
+animeboot_neo/qt_gui.py,AnimationDialog._update_extraction_hint,2786,
+animeboot_neo/qt_gui.py,AnimationDialog._format_estimated_size,2800,
+animeboot_neo/qt_gui.py,AnimationDialog._set_form_row_visible,2808,
+animeboot_neo/qt_gui.py,AnimationDialog._sync_dynamic_rows,2814,
+animeboot_neo/qt_gui.py,AnimationDialog._estimate_inputs_changed,2821,
+animeboot_neo/qt_gui.py,AnimationDialog._current_estimate_signature,2824,
+animeboot_neo/qt_gui.py,AnimationDialog._estimated_total_boot_bytes,2831,
+animeboot_neo/qt_gui.py,AnimationDialog._probe_boot_partition_space_for_estimate,2837,Read real boot-space information only after administrator approval.
+animeboot_neo/qt_gui.py,AnimationDialog._calculate_codec_estimate,2863,
+animeboot_neo/qt_gui.py,AnimationDialog._selected_space_risk,2886,
+animeboot_neo/qt_gui.py,AnimationDialog._update_estimate_text,2895,
+animeboot_neo/qt_gui.py,AnimationDialog._estimate_codecs,2925,
+animeboot_neo/qt_gui.py,AnimationDialog._estimate_codecs_done,2966,
+animeboot_neo/qt_gui.py,AnimationDialog._estimate_codecs_failed,2977,
+animeboot_neo/qt_gui.py,AnimationDialog._estimate_thread_finished,2984,
+animeboot_neo/qt_gui.py,AnimationDialog._show_space_warning,2995,
+animeboot_neo/qt_gui.py,AnimationDialog._space_preflight_before_accept,3008,
+animeboot_neo/qt_gui.py,AnimationDialog._file,3024,
+animeboot_neo/qt_gui.py,AnimationDialog._folder,3030,
+animeboot_neo/qt_gui.py,AnimationDialog._preview_fit_mode,3036,
+animeboot_neo/qt_gui.py,AnimationDialog.apply,3057,
+animeboot_neo/qt_gui.py,_is_no_space_error,3081,"Recognize disk-full errors from Python, Windows, and wrapped tool text."
+animeboot_neo/qt_gui.py,_format_free_space,3098,
+animeboot_neo/qt_gui.py,_build_no_space_message,3113,
+animeboot_neo/qt_gui.py,_estimate_total_boot_bytes,3132,
+animeboot_neo/qt_gui.py,_boot_space_probe_failure_message,3137,Explain *why* real boot-space capacity could not be read.
+animeboot_neo/qt_gui.py,_probe_boot_partition_space_background,3163,Read boot-space information without blocking the Qt GUI thread.
+animeboot_neo/qt_gui.py,CodecEstimateWorker,3183,Background CPU/IO worker shared by manual estimate and build preflight.
+animeboot_neo/qt_gui.py,CodecEstimateWorker.__init__,3189,
+animeboot_neo/qt_gui.py,CodecEstimateWorker.run,3194,
+animeboot_neo/qt_gui.py,ThemePackageWorker,3217,
+animeboot_neo/qt_gui.py,ThemePackageWorker.__init__,3219,
+animeboot_neo/qt_gui.py,ThemePackageWorker.run,3221,
+animeboot_neo/qt_gui.py,ThemePackageTaskDialog,3226,
+animeboot_neo/qt_gui.py,ThemePackageTaskDialog.__init__,3227,
+animeboot_neo/qt_gui.py,ThemePackageTaskDialog._done,3238,
+animeboot_neo/qt_gui.py,ThemePackageTaskDialog.reject,3239,
+animeboot_neo/qt_gui.py,ThemePackageTaskDialog.closeEvent,3241,
+animeboot_neo/qt_gui.py,BuildWorker,3246,
+animeboot_neo/qt_gui.py,BuildWorker.__init__,3252,
+animeboot_neo/qt_gui.py,BuildWorker.cancel,3258,
+animeboot_neo/qt_gui.py,BuildWorker.is_cancelled,3261,
+animeboot_neo/qt_gui.py,BuildWorker.run,3264,
+animeboot_neo/qt_gui.py,MainWindow,3307,
+animeboot_neo/qt_gui.py,MainWindow.__init__,3308,
+animeboot_neo/qt_gui.py,MainWindow._make_ui,3352,
+animeboot_neo/qt_gui.py,MainWindow._button,3461,
+animeboot_neo/qt_gui.py,MainWindow._card_scroll,3472,
+animeboot_neo/qt_gui.py,MainWindow._make_left_panel,3481,
+animeboot_neo/qt_gui.py,MainWindow._make_center_panel,3709,
+animeboot_neo/qt_gui.py,MainWindow._refresh_canvas_manager,3740,
+animeboot_neo/qt_gui.py,MainWindow._canvas_changed,3753,
+animeboot_neo/qt_gui.py,MainWindow._add_canvas,3762,
+animeboot_neo/qt_gui.py,MainWindow._delete_canvas,3773,
+animeboot_neo/qt_gui.py,MainWindow._make_right_panel,3783,
+animeboot_neo/qt_gui.py,MainWindow._load_controls,3799,
+animeboot_neo/qt_gui.py,MainWindow._debug_info_changed,3858,
+animeboot_neo/qt_gui.py,MainWindow._static_windows_transition_changed,3861,
+animeboot_neo/qt_gui.py,MainWindow._sync_static_windows_transition,3865,
+animeboot_neo/qt_gui.py,MainWindow._debug_log,3872,
+animeboot_neo/qt_gui.py,MainWindow._countdown_changed,3876,
+animeboot_neo/qt_gui.py,MainWindow._timeout_changed,3901,
+animeboot_neo/qt_gui.py,MainWindow._toggle_guides,3924,
+animeboot_neo/qt_gui.py,MainWindow._grub_compat_toggled,3930,
+animeboot_neo/qt_gui.py,MainWindow.apply_basic,3939,
+animeboot_neo/qt_gui.py,MainWindow._program_directory,3976,
+animeboot_neo/qt_gui.py,MainWindow._load_default_assets,3981,
+animeboot_neo/qt_gui.py,MainWindow._pending_manifest_file,3993,
+animeboot_neo/qt_gui.py,MainWindow._remember_pending_install_manifest,3997,
+animeboot_neo/qt_gui.py,MainWindow._persist_pending_install_manifest,4003,
+animeboot_neo/qt_gui.py,MainWindow._keep_pending_after_install_problem,4019,Persist only after a completed build encounters an install problem.
+animeboot_neo/qt_gui.py,MainWindow._pending_manifest_valid,4031,
+animeboot_neo/qt_gui.py,MainWindow._restore_pending_install_manifest,4048,
+animeboot_neo/qt_gui.py,MainWindow._clear_pending_install_manifest,4074,
+animeboot_neo/qt_gui.py,MainWindow._choose_png,4087,
+animeboot_neo/qt_gui.py,MainWindow.replace_logo,4091,
+animeboot_neo/qt_gui.py,MainWindow.replace_company,4103,
+animeboot_neo/qt_gui.py,MainWindow.add_image,4115,
+animeboot_neo/qt_gui.py,MainWindow.add_text,4137,
+animeboot_neo/qt_gui.py,MainWindow.configure_animation,4160,
+animeboot_neo/qt_gui.py,MainWindow.refresh_layers,4166,
+animeboot_neo/qt_gui.py,MainWindow.layer_order_changed,4200,
+animeboot_neo/qt_gui.py,MainWindow.layer_selected,4224,
+animeboot_neo/qt_gui.py,MainWindow.layer_visibility_changed,4229,
+animeboot_neo/qt_gui.py,MainWindow.select_key,4240,
+animeboot_neo/qt_gui.py,MainWindow._edit_key,4249,
+animeboot_neo/qt_gui.py,MainWindow._copy_key,4253,
+animeboot_neo/qt_gui.py,MainWindow._delete_key,4257,
+animeboot_neo/qt_gui.py,MainWindow._move_key,4261,
+animeboot_neo/qt_gui.py,MainWindow._align_key,4265,
+animeboot_neo/qt_gui.py,MainWindow._show_layer_context_menu,4279,
+animeboot_neo/qt_gui.py,MainWindow.edit_selected,4320,
+animeboot_neo/qt_gui.py,MainWindow._offset_duplicate,4328,
+animeboot_neo/qt_gui.py,MainWindow.copy_selected,4335,
+animeboot_neo/qt_gui.py,MainWindow.delete_selected,4387,
+animeboot_neo/qt_gui.py,MainWindow.move_layer,4411,
+animeboot_neo/qt_gui.py,MainWindow.refresh_all,4428,
+animeboot_neo/qt_gui.py,MainWindow.preview_countdown,4434,
+animeboot_neo/qt_gui.py,MainWindow.closeEvent,4489,
+animeboot_neo/qt_gui.py,MainWindow.new_project,4493,
+animeboot_neo/qt_gui.py,MainWindow.save_project,4498,
+animeboot_neo/qt_gui.py,MainWindow.export_theme_package,4505,
+animeboot_neo/qt_gui.py,MainWindow.import_theme_package,4519,
+animeboot_neo/qt_gui.py,MainWindow.configure_rotation,4533,
+animeboot_neo/qt_gui.py,MainWindow._missing_image_message,4543,
+animeboot_neo/qt_gui.py,MainWindow._missing_animation_message,4557,
+animeboot_neo/qt_gui.py,MainWindow.load_project_path,4578,
+animeboot_neo/qt_gui.py,MainWindow.open_project,4625,
+animeboot_neo/qt_gui.py,MainWindow._refresh_busy_progress_animation,4630,
+animeboot_neo/qt_gui.py,MainWindow._set_task_busy,4638,
+animeboot_neo/qt_gui.py,MainWindow._next_output_directory,4656,
+animeboot_neo/qt_gui.py,MainWindow._poll_animation_frame_dir,4667,
+animeboot_neo/qt_gui.py,MainWindow._elevated_build_state_payload,4683,
+animeboot_neo/qt_gui.py,MainWindow._request_admin_and_resume_build,4692,
+animeboot_neo/qt_gui.py,MainWindow._restore_elevated_build_state,4710,
+animeboot_neo/qt_gui.py,MainWindow._resume_build_after_elevation,4724,
+animeboot_neo/qt_gui.py,MainWindow._animation_space_preflight_parameters,4739,
+animeboot_neo/qt_gui.py,MainWindow._space_risk_from_estimate,4765,
+animeboot_neo/qt_gui.py,MainWindow._space_risk_message,4783,
+animeboot_neo/qt_gui.py,MainWindow._ask_force_space_warning,4801,
+animeboot_neo/qt_gui.py,MainWindow._start_build_space_preflight,4812,
+animeboot_neo/qt_gui.py,MainWindow._build_space_preflight_done,4837,
+animeboot_neo/qt_gui.py,MainWindow._build_space_preflight_failed,4848,
+animeboot_neo/qt_gui.py,MainWindow._build_preflight_thread_finished,4889,
+animeboot_neo/qt_gui.py,MainWindow._validate_animation_boot_space,4895,Legacy synchronous checker retained for tests/internal callers.
+animeboot_neo/qt_gui.py,MainWindow.start_build,4913,
+animeboot_neo/qt_gui.py,MainWindow._begin_build_after_preflight,4939,
+animeboot_neo/qt_gui.py,MainWindow.cancel_build,4974,
+animeboot_neo/qt_gui.py,MainWindow._build_progress,4983,
+animeboot_neo/qt_gui.py,MainWindow._finish_build_ui,4987,
+animeboot_neo/qt_gui.py,MainWindow._build_thread_finished,4993,
+animeboot_neo/qt_gui.py,MainWindow._build_cancelled,4999,
+animeboot_neo/qt_gui.py,MainWindow._build_done,5009,
+animeboot_neo/qt_gui.py,MainWindow._build_failed,5033,
+animeboot_neo/qt_gui.py,MainWindow.direct_modify_runtime_fps,5037,
+animeboot_neo/qt_gui.py,MainWindow._base_manifest,5073,
+animeboot_neo/qt_gui.py,MainWindow.continue_pending_install,5086,
+animeboot_neo/qt_gui.py,MainWindow.deploy_install,5103,
+animeboot_neo/qt_gui.py,MainWindow.deploy_final,5114,
+animeboot_neo/qt_gui.py,MainWindow._start_deploy,5120,
+animeboot_neo/qt_gui.py,MainWindow._production_success_message,5146,
+animeboot_neo/qt_gui.py,MainWindow._localize_messagebox_details_button,5234,Force Qt's built-in Details toggle to Chinese even without qt_zh_CN.qm.
+animeboot_neo/qt_gui.py,MainWindow._ask_bootcurrent_repair_choice,5250,
+animeboot_neo/qt_gui.py,MainWindow._diskgenius_manual_uefi_repair_text,5266,
+animeboot_neo/qt_gui.py,MainWindow._show_manual_uefi_repair,5290,
+animeboot_neo/qt_gui.py,MainWindow._ask_secure_boot_install_consent,5319,
+animeboot_neo/qt_gui.py,MainWindow._relaunch_deploy_after_consent,5334,
+animeboot_neo/qt_gui.py,MainWindow._poll_deploy,5345,
+animeboot_neo/qt_gui.py,MainWindow.disable_boot_animations,5539,
+animeboot_neo/qt_gui.py,MainWindow.show_build_help,5562,
+animeboot_neo/qt_gui.py,MainWindow.show_about,5585,
+animeboot_neo/qt_gui.py,MainWindow._theme_changed,5596,
+animeboot_neo/qt_gui.py,MainWindow.set_theme,5599,
+animeboot_neo/qt_gui.py,MainWindow._sync_panel_toggle_states,5605,
+animeboot_neo/qt_gui.py,MainWindow._refresh_panel_toggle_visuals,5617,
+animeboot_neo/qt_gui.py,MainWindow.changeEvent,5631,
+animeboot_neo/qt_gui.py,MainWindow.showEvent,5638,
+animeboot_neo/qt_gui.py,MainWindow.toggle_left,5648,
+animeboot_neo/qt_gui.py,MainWindow.toggle_right,5654,
+animeboot_neo/qt_gui.py,MainWindow._fit_header_controls,5660,
+animeboot_neo/qt_gui.py,MainWindow._reflow_top_bar,5675,
+animeboot_neo/qt_gui.py,MainWindow.resizeEvent,5689,
+animeboot_neo/qt_gui.py,_startup_project_path,5700,"Return the current .anbp path supplied by Windows Open With, if any."
+animeboot_neo/qt_gui.py,_choose_ui_font,5710,
+animeboot_neo/qt_gui.py,main,5722,
+animeboot_neo/quiet_boot.py,silent_a20,22,
+animeboot_neo/quiet_boot.py,silent_bios_modules,33,
+animeboot_neo/resolution.py,_area,10,
+animeboot_neo/resolution.py,build_fallback_resolutions,14,"Selected mode first, then every known lower mode from large to small."
+animeboot_neo/resolution.py,gfxmode_value,43,
+animeboot_neo/resources.py,resource_root,14,
+animeboot_neo/resources.py,digest,17,
+animeboot_neo/resources.py,validate_components,23,
+animeboot_neo/resources.py,validate_static_elf,34,
+animeboot_neo/resources.py,default_theme_assets,46,Original neutral artwork generated in code; never extracted from DAT.
+animeboot_neo/resources.py,host_windows_architecture,60,Return the target architecture for the current Windows installation.
+animeboot_neo/resources.py,validate_bundled_animebootneo,80,
+animeboot_neo/rotation.py,animation_sources,14,
+animeboot_neo/rotation.py,animation_projects,21,
+animeboot_neo/rotation.py,validate_rotation,29,
+animeboot_neo/rotation.py,initramfs_paths,44,
+animeboot_neo/rotation.py,rotation_script,49,
+animeboot_neo/rotation.py,estimate_rotation_sizes,62,
+animeboot_neo/rotation.py,estimate_parameters,85,
+animeboot_neo/rotation.py,estimate_signature,97,Invalidates cached approval after edits or deleted/replaced source files.
+animeboot_neo/rotation.py,estimated_boot_bytes,131,"Count selected frames, every initramfs runtime and shared boot resources."
+animeboot_neo/rotation_dialog.py,RotationDialog,19,
+animeboot_neo/rotation_dialog.py,RotationDialog.__init__,20,
+animeboot_neo/rotation_dialog.py,RotationDialog._append,77,
+animeboot_neo/rotation_dialog.py,RotationDialog.candidate,80,
+animeboot_neo/rotation_dialog.py,RotationDialog._refresh_resources,86,
+animeboot_neo/rotation_dialog.py,RotationDialog._set_checked,105,
+animeboot_neo/rotation_dialog.py,RotationDialog._edited,108,
+animeboot_neo/rotation_dialog.py,RotationDialog.add_source,113,
+animeboot_neo/rotation_dialog.py,RotationDialog.delete_source,120,
+animeboot_neo/rotation_dialog.py,RotationDialog.move_source,124,
+animeboot_neo/rotation_dialog.py,RotationDialog._check_existing,130,
+animeboot_neo/rotation_dialog.py,RotationDialog._enable_toggled,133,
+animeboot_neo/rotation_dialog.py,RotationDialog.start_estimate,147,
+animeboot_neo/rotation_dialog.py,RotationDialog._size,174,
+animeboot_neo/rotation_dialog.py,RotationDialog._estimated,176,
+animeboot_neo/rotation_dialog.py,RotationDialog._failed,204,
+animeboot_neo/rotation_dialog.py,RotationDialog._finished,208,
+animeboot_neo/rotation_dialog.py,RotationDialog.estimate_cache,213,仅返回成功且仍对应当前素材的估算；安装阶段另查实际分区容量。
+animeboot_neo/rotation_dialog.py,RotationDialog._confirm_disabled,219,
+animeboot_neo/rotation_dialog.py,RotationDialog.apply,231,
+animeboot_neo/rotation_dialog.py,RotationDialog.reject,253,
+animeboot_neo/rotation_dialog.py,RotationDialog.closeEvent,256,
+animeboot_neo/runtime.py,build_animation_initramfs,16,
+animeboot_neo/scenes.py,capture_canvas,17,
+animeboot_neo/scenes.py,sync_canvas,21,"Commit the live flat fields before switching, saving, sharing or building."
+animeboot_neo/scenes.py,select_canvas,32,
+animeboot_neo/scenes.py,canvas_projects,40,
+animeboot_neo/scenes.py,countdown_modes,52,
+animeboot_neo/scenes.py,theme_paths,64,
+animeboot_neo/scenes.py,resize_canvases,71,"Resolution is shared; resize every stored scene, including hidden ones."
+animeboot_neo/scenes.py,static_selection_script,96,
+animeboot_neo/theme.py,ThemeError,26,
+animeboot_neo/theme.py,clear_image_cache,35,
+animeboot_neo/theme.py,_png_bytes,41,
+animeboot_neo/theme.py,transparent_png,47,
+animeboot_neo/theme.py,_load_png,51,
+animeboot_neo/theme.py,_load_png_bytes,73,
+animeboot_neo/theme.py,find_cjk_font,86,
+animeboot_neo/theme.py,_font,90,
+animeboot_neo/theme.py,_resize_contain,104,
+animeboot_neo/theme.py,_resize_stretch,114,
+animeboot_neo/theme.py,_rotation_degrees,118,
+animeboot_neo/theme.py,_composite_rotated_layer,125,Composite a local object layer around the center of its nominal x/y/w/h box.
+animeboot_neo/theme.py,_composite_rect,141,
+animeboot_neo/theme.py,_hex_color,147,
+animeboot_neo/theme.py,_countdown_tick,157,Create the single PNG used by the stock circular_progress widget.
+animeboot_neo/theme.py,_bar_texture_images,203,"Two project-owned nine-slice skins, independent of signed binaries."
+animeboot_neo/theme.py,_nine_slice_parts,220,
+animeboot_neo/theme.py,_resize_nine_slice,226,
+animeboot_neo/theme.py,_draw_preview_countdown,238,"Draw elapsed progress: 0 -> empty, 1 -> complete."
+animeboot_neo/theme.py,_render_prompt,299,
+animeboot_neo/theme.py,_wrap_text,307,
+animeboot_neo/theme.py,_render_text_box,326,
+animeboot_neo/theme.py,_render_static_object,352,
+animeboot_neo/theme.py,_compose_static,386,
+animeboot_neo/theme.py,_grub_rect,398,"Return target-canvas pixel geometry, clamped to the selected resolution."
+animeboot_neo/theme.py,_proportional_expression,412,Return a GRUB proportional expression valid in the stock parser.
+animeboot_neo/theme.py,_theme_rect,434,Return pixel geometry plus fallback-safe GRUB expressions.
+animeboot_neo/theme.py,_grub_tick_size,455,
+animeboot_neo/theme.py,generate_style,460,
+animeboot_neo/theme.py,_compose_preview,525,
+animeboot_neo/theme.py,_scaled_preview_project,532,
+animeboot_neo/theme.py,render_preview_scaled,562,
+animeboot_neo/theme.py,render_theme,567,
+animeboot_neo/theme.py,render_canvases,595,Export one style per scene and share identical PNGs within one theme dir.
+animeboot_neo/theme_package.py,ThemePackageError,20,
+animeboot_neo/theme_package.py,_hash,22,
+animeboot_neo/theme_package.py,_slots,28,
+animeboot_neo/theme_package.py,_canvas_slots,38,
+animeboot_neo/theme_package.py,export_theme,46,
+animeboot_neo/theme_package.py,import_theme,97,
+animeboot_neo/ui_effects.py,_FLASHWINFO,51,
+animeboot_neo/ui_effects.py,_native_window_handle,61,
+animeboot_neo/ui_effects.py,flash_taskbar_notification,74,Flash the app's taskbar button only when another app is foreground.
+animeboot_neo/ui_effects.py,install_messagebox_taskbar_notifications,114,Return a QMessageBox subclass that adds inactive-taskbar attention.
+animeboot_neo/ui_effects.py,configure_opengl_format,161,Compatibility no-op: stable builds intentionally create no OpenGL context.
+animeboot_neo/ui_effects.py,_theme_for_widget,166,
+animeboot_neo/ui_effects.py,build_palette,177,
+animeboot_neo/ui_effects.py,apply_native_titlebar,231,
+animeboot_neo/ui_effects.py,ThemeProxyStyle,253,Draw complete themed buttons without relying on stylesheet label paint.
+animeboot_neo/ui_effects.py,ThemeProxyStyle.__init__,263,
+animeboot_neo/ui_effects.py,ThemeProxyStyle.polish,270,
+animeboot_neo/ui_effects.py,ThemeProxyStyle.unpolish,279,
+animeboot_neo/ui_effects.py,ThemeProxyStyle._ensure_motion,288,
+animeboot_neo/ui_effects.py,ThemeProxyStyle._set_motion_target,295,
+animeboot_neo/ui_effects.py,ThemeProxyStyle.eventFilter,302,
+animeboot_neo/ui_effects.py,ThemeProxyStyle._advance_motion,317,
+animeboot_neo/ui_effects.py,ThemeProxyStyle._motion_value,342,
+animeboot_neo/ui_effects.py,ThemeProxyStyle.sizeFromContents,347,
+animeboot_neo/ui_effects.py,ThemeProxyStyle.pixelMetric,363,
+animeboot_neo/ui_effects.py,ThemeProxyStyle.drawPrimitive,372,
+animeboot_neo/ui_effects.py,ThemeProxyStyle._draw_check_indicator,381,
+animeboot_neo/ui_effects.py,ThemeProxyStyle.drawControl,461,
+animeboot_neo/ui_effects.py,ThemeProxyStyle.drawComplexControl,467,
+animeboot_neo/ui_effects.py,ThemeProxyStyle._indicator_colors,476,
+animeboot_neo/ui_effects.py,ThemeProxyStyle._draw_control_segment,501,
+animeboot_neo/ui_effects.py,ThemeProxyStyle._control_outline_color,513,
+animeboot_neo/ui_effects.py,ThemeProxyStyle._draw_chevron,521,
+animeboot_neo/ui_effects.py,ThemeProxyStyle._draw_combo_indicator,530,
+animeboot_neo/ui_effects.py,ThemeProxyStyle._draw_spin_indicators,552,
+animeboot_neo/ui_effects.py,ThemeProxyStyle._rounded_path,585,
+animeboot_neo/ui_effects.py,ThemeProxyStyle._display_text,591,
+animeboot_neo/ui_effects.py,ThemeProxyStyle._content_color,595,
+animeboot_neo/ui_effects.py,ThemeProxyStyle._draw_button_content,604,
+animeboot_neo/ui_effects.py,ThemeProxyStyle._draw_button_surface,670,
+animeboot_neo/ui_effects.py,ThemeProxyStyle._paint_aero,690,
+animeboot_neo/ui_effects.py,ThemeProxyStyle._paint_liquid,761,
+animeboot_neo/ui_effects.py,ThemeProxyStyle._paint_dark,845,
+animeboot_neo/ui_effects.py,ThemeBackdrop,876,60 FPS software-rendered backdrop used by all stable builds.
+animeboot_neo/ui_effects.py,ThemeBackdrop.__init__,886,
+animeboot_neo/ui_effects.py,ThemeBackdrop.register_panel,900,
+animeboot_neo/ui_effects.py,ThemeBackdrop.set_theme,904,
+animeboot_neo/ui_effects.py,ThemeBackdrop.set_busy,909,
+animeboot_neo/ui_effects.py,ThemeBackdrop._sync_animation_timer,916,
+animeboot_neo/ui_effects.py,ThemeBackdrop._draw_liquid,923,
+animeboot_neo/ui_effects.py,ThemeBackdrop.paintEvent,1008,
+animeboot_neo/video_extract.py,_source_metadata,29,
+animeboot_neo/video_extract.py,_sampling_options,56,
+animeboot_neo/video_extract.py,_completed_png,90,
+animeboot_neo/video_extract.py,_stop_process,101,
+animeboot_neo/video_extract.py,_error_tail,112,
+animeboot_neo/video_extract.py,extract_video_pngs,123,Return source-size RGBA PNG paths and native extraction diagnostics.
+animeboot_neo/win_display.py,_devmode_type,9,
+animeboot_neo/win_display.py,get_current_display_resolution,49,
+animeboot_neo/win_display.py,get_current_display_refresh_rate,63,Return the current Windows primary-display refresh rate in Hz.
+animeboot_neo/win_display.py,get_display_resolutions,89,
+animeboot_neo/windows.py,DeploymentError,70,
+animeboot_neo/windows.py,DeploymentConsentRequired,74,Raised before any boot-chain write when the user must accept a risk.
+animeboot_neo/windows.py,DeploymentConsentRequired.__init__,77,
+animeboot_neo/windows.py,_sha256_file,95,
+animeboot_neo/windows.py,_read_bytes,106,
+animeboot_neo/windows.py,_legacy_mbr_layout,111,
+animeboot_neo/windows.py,_windows_kernel32,142,
+animeboot_neo/windows.py,_flush_physical_disk_compat,185,Flush a raw PhysicalDrive write without false-failing on old drivers.
+animeboot_neo/windows.py,_raw_volume_path,205,
+animeboot_neo/windows.py,_powershell_path,212,
+animeboot_neo/windows.py,_raw_volume_boot_sector,227,
+animeboot_neo/windows.py,_read_volume_boot_bytes,231,Read the system volume boot sector without relying on localized tools.
+animeboot_neo/windows.py,check_system_volume_encryption,263,Fail-closed BitLocker/Device Encryption preflight.
+animeboot_neo/windows.py,_run_bcdedit,351,
+animeboot_neo/windows.py,_bcd_guid_is_present,366,Postcondition probe used instead of trusting BCDEdit's exit code alone.
+animeboot_neo/windows.py,_delete_bcd_guid_robust,375,Delete a BCD object and verify the resulting store state.
+animeboot_neo/windows.py,_volume_filesystem_name,400,Return the filesystem name for a mounted Windows volume root.
+animeboot_neo/windows.py,_inspect_windows_esp_root,428,Fail closed unless *root* is a plausible current Windows ESP.
+animeboot_neo/windows.py,_format_diagnostics,461,Render diagnostics for users instead of exposing Python list reprs.
+animeboot_neo/windows.py,_enable_system_environment_privilege,488,Best-effort enable SeSystemEnvironmentPrivilege in the elevated process.
+animeboot_neo/windows.py,_get_firmware_variable_bytes,538,Read one UEFI variable via the native Windows API.
+animeboot_neo/windows.py,_set_firmware_variable_bytes,581,Write or delete one UEFI variable using the same Win32 API family as AnimeBootNeo.
+animeboot_neo/windows.py,_efi_load_option_description,623,Return the UTF-16 description from an EFI_LOAD_OPTION Boot#### value.
+animeboot_neo/windows.py,_efi_load_option_file_paths,643,Return MEDIA_FILEPATH_DP strings from one EFI_LOAD_OPTION.
+animeboot_neo/windows.py,_efi_load_option_optional_data,691,Return the EFI_LOAD_OPTION OptionalData bytes exactly as stored.
+animeboot_neo/windows.py,_efi_clone_load_option_with_filepath,714,Clone a same-ESP EFI_LOAD_OPTION while replacing only Description/File().
+animeboot_neo/windows.py,_firmware_variable_is_absent_error,773,
+animeboot_neo/windows.py,_find_free_firmware_boot_number,778,Find a Boot#### number not referenced and not present as an orphan variable.
+animeboot_neo/windows.py,_set_new_firmware_variable_bytes,795,Create one new UEFI variable with explicit NV+BS+RT attributes.
+animeboot_neo/windows.py,_read_firmware_boot_order,833,
+animeboot_neo/windows.py,_firmware_boot_entry_record,842,Read one Boot#### as an identity-bearing EFI_LOAD_OPTION record.
+animeboot_neo/windows.py,_snapshot_firmware_boot_entries,867,Capture BootOrder plus the full identity of every referenced Boot####.
+animeboot_neo/windows.py,_target_esp_partition_identity,883,Read the mounted ESP's GPT identity; never infer it from an EFI filename.
+animeboot_neo/windows.py,_efi_load_option_partition_identity,919,"Parse one GPT HD()/File() path, rejecting ambiguous multi-instance paths."
+animeboot_neo/windows.py,_native_template_for_esp,959,
+animeboot_neo/windows.py,_verify_native_baseline,989,"Do not silently rewrite, remove, or accept mutations to old Boot#### values."
+animeboot_neo/windows.py,_remove_managed_native_boot_entry,997,"Idempotently remove our exact native identity, never a reused Boot number."
+animeboot_neo/windows.py,_create_native_esp_boot_entry,1045,Create one clean native EFI_LOAD_OPTION with a reversible transaction.
+animeboot_neo/windows.py,_firmware_boot_snapshot_delta,1139,Return new-number and same-number-replaced Boot#### identities.
+animeboot_neo/windows.py,_read_bootcurrent_details,1161,Read the machine's actual BootCurrent and parse its EFI file path.
+animeboot_neo/windows.py,_read_bootorder_first_details,1189,Read the real first Boot#### referenced by UEFI BootOrder.
+animeboot_neo/windows.py,_probe_bootcurrent_boot_path,1223,Classify the EFI path used by the *ordinary next boot*.
+animeboot_neo/windows.py,_efi_x509_thumbprints,1317,Parse EFI_SIGNATURE_LIST records and return SHA-1s of X.509 entries.
+animeboot_neo/windows.py,_firmware_db_x509_thumbprints,1343,
+animeboot_neo/windows.py,_secure_boot_enabled,1352,"Return True/False when Windows can determine Secure Boot state, else None."
+animeboot_neo/windows.py,_mount_system_esp,1377,
+animeboot_neo/windows.py,_volume_disk_extent,1447,Return one-volume disk extent used to map a drive letter to an MBR partition.
+animeboot_neo/windows.py,_read_mbr_sector_for_disk,1473,
+animeboot_neo/windows.py,_bios_volume_record,1491,
+animeboot_neo/windows.py,_collect_bios_volume_records,1508,Inspect visible and hidden volumes read-only; hidden volumes are unmounted after inspection.
+animeboot_neo/windows.py,_active_partition_offsets,1537,
+animeboot_neo/windows.py,_select_bios_boot_record,1549,
+animeboot_neo/windows.py,_remount_bios_record,1576,
+animeboot_neo/windows.py,_find_bios_system_volume,1597,
+animeboot_neo/windows.py,_normalized_bcd_path,1609,
+animeboot_neo/windows.py,_bcd_entry_has_path,1613,Verify the path postcondition instead of trusting BCDEdit rc alone.
+animeboot_neo/windows.py,_extract_efi_paths_from_bcd_text,1622,Extract EFI executable paths from BCDEdit output without locale labels.
+animeboot_neo/windows.py,_bcd_object_blocks,1632,"Return (object_identifier, block_text) pairs from BCDEdit output."
+animeboot_neo/windows.py,_read_fwbootmgr_displayorder_bcd,1651,Read BootOrder through one BCDEdit FIRMWARE snapshot.
+animeboot_neo/windows.py,_probe_fwbootmgr_primary_bcd_path,1714,Resolve the real firmware first entry path from BCDEdit FIRMWARE.
+animeboot_neo/windows.py,_create_animebootneo_firmware_entry_details,1748,"Create a clean same-ESP native rescue item, without BCDEdit side effects."
+animeboot_neo/windows.py,_rollback_new_firmware_numbers,1764,Rollback only Boot#### values proven not to exist before this operation.
+animeboot_neo/windows.py,_remove_exact_firmware_boot_numbers,1781,"Remove only the exact Boot#### numbers supplied, preserving everything else."
+animeboot_neo/windows.py,_cleanup_unexpected_new_firmware_boot_options,1826,Remove every unsolicited Boot#### identity created/replaced in this phase.
+animeboot_neo/windows.py,_bcd_partition_device_for_esp_root,1896,
+animeboot_neo/windows.py,_create_repair_windows_boot_manager,1903,Repair the first boot path through one verified native EFI_LOAD_OPTION.
+animeboot_neo/windows.py,_physical_disk_for_volume,1920,
+animeboot_neo/windows.py,_read_physical_bytes,1941,
+animeboot_neo/windows.py,_native_system_executable,1959,Return a native Windows system executable even from 32-bit Python.
+animeboot_neo/windows.py,_decode_console_output,1973,
+animeboot_neo/windows.py,_parse_standalone_boot_number,1983,"Parse state values such as Boot0015, 0015 or 21 into one Boot#### number."
+animeboot_neo/windows.py,_boot_option_contains_bcd_guid,1999,Return True when a Windows Boot#### optional-data BCDOBJECT matches GUID.
+animeboot_neo/windows.py,_find_firmware_boot_numbers_for_bcd_guid,2017,Resolve an exact BCD GUID to native Boot#### numbers without name guessing.
+animeboot_neo/windows.py,_delete_managed_repair_wbm_exact,2039,Delete our repair WBM by exact GUID and its exact native Boot#### mapping.
+animeboot_neo/windows.py,_write_physical_sector,2079,
+animeboot_neo/windows.py,_drive_roots,2116,
+animeboot_neo/windows.py,_firmware_type_via_modern_api,2127,Use Windows 8+ GetFirmwareType when the API is available.
+animeboot_neo/windows.py,_firmware_type_via_environment_api,2144,Windows 7-compatible firmware-mode probe.
+animeboot_neo/windows.py,_firmware_type,2183,"Return ``uefi``, ``bios`` or ``unknown`` from Win7 through current Windows."
+animeboot_neo/windows.py,_mountvol_path,2214,
+animeboot_neo/windows.py,_free_drive_letters,2220,
+animeboot_neo/windows.py,_enumerate_volume_names,2225,Enumerate Windows volume GUID paths using the native volume API.
+animeboot_neo/windows.py,_volume_mount_paths,2261,
+animeboot_neo/windows.py,_try_mount_volume,2288,
+animeboot_neo/windows.py,_unmount_root,2303,
+animeboot_neo/windows.py,_find_grub_cfgs,2319,
+animeboot_neo/windows.py,_encode_action_payload,2334,
+animeboot_neo/windows.py,_decode_action_payload,2339,
+animeboot_neo/windows.py,_write_binary_result,2350,
+animeboot_neo/windows.py,read_action_result,2367,
+animeboot_neo/windows.py,prepare_elevated_action,2380,
+animeboot_neo/windows.py,launch_elevated_action,2401,
+animeboot_neo/windows_efi.py,inspect_pe,24,
+animeboot_neo/windows_efi.py,_version_strings,52,
+animeboot_neo/windows_efi.py,_signature,81,
+animeboot_neo/windows_efi.py,validate_windows_efi,131,

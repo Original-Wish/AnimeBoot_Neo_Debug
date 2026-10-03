@@ -1,0 +1,6 @@
+# Windows build runtime: Python 3.8.x, 32-bit
+PySide2==5.15.2.1
+Pillow==9.5.0
+imageio-ffmpeg==0.4.9
+PyInstaller==5.13.2
+fonttools==4.47.0

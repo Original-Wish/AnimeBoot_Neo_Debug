@@ -1,0 +1,53 @@
+[
+  {
+    "file": "licenses/sources/shim-16.1-7.src.rpm",
+    "url": "https://kojipkgs.fedoraproject.org/packages/shim/16.1/7/src/shim-16.1-7.src.rpm",
+    "size": 1185759,
+    "sha256": "ef6b1972153032c4be772666467c42300745859fb01f622d2d7e6bcbba479b28"
+  },
+  {
+    "file": "licenses/sources/kernel-7.2.7-200.fc44.src.rpm",
+    "url": "https://kojipkgs.fedoraproject.org/packages/kernel/7.2.7/200.fc44/src/kernel-7.2.7-200.fc44.src.rpm",
+    "size": 166988255,
+    "sha256": "2ca63711421f8881e35e30a944d4b33ccc79c5268cfc1fed346605047bb196b9"
+  },
+  {
+    "file": "licenses/sources/unifont-13.0.06.tar.gz",
+    "url": "https://unifoundry.com/pub/unifont/unifont-13.0.06/unifont-13.0.06.tar.gz",
+    "size": 23507273,
+    "sha256": "68def7a46df44241c7bf62de7ce0444e8ee9782f159c4b7553da9cfdc00be925"
+  },
+  {
+    "file": "licenses/sources/grub-2.12.tar.xz",
+    "url": "https://ftp.gnu.org/gnu/grub/grub-2.12.tar.xz",
+    "size": 6675608,
+    "sha256": "f3c97391f7c4eaa677a78e090c7e97e6dc47b16f655f04683ebd37bef7fe0faa"
+  },
+  {
+    "file": "licenses/sources/libjpeg-turbo-3.1.2.tar.gz",
+    "url": "https://codeload.github.com/libjpeg-turbo/libjpeg-turbo/tar.gz/refs/tags/3.1.2",
+    "sha256": "560f6338b547544c4f9721b18d8b87685d433ec78b3c644c70d77adad22c55e6",
+    "size": 2512033
+  },
+  {
+    "file": "licenses/sources/xz-5.8.1.tar.gz",
+    "url": "https://codeload.github.com/tukaani-project/xz/tar.gz/refs/tags/v5.8.1",
+    "sha256": "bdbc23fbf9098843357e71e49685724fda2c320c29cb1b25fd90505f14bb0b3d",
+    "size": 1543987
+  },
+  {
+    "file": "licenses/sources/zig-0.13.0-static-runtime-sources.tar.gz",
+    "url": "https://ziglang.org/download/0.13.0/zig-windows-x86_64-0.13.0.zip",
+    "origin_archive_sha256": "d859994725ef9402381e557c60bb57497215682e355204d754ee3df75ee3c158",
+    "note": "Subset archive of bundled musl and compiler_rt sources; Zig license retained.",
+    "sha256": "148cfa91b90aa170d7cf1dba97d2be19e934eac14821f29d9527c9982fe60d6e",
+    "size": 1145958
+  },
+  {
+    "file": "licenses/sources/shim-unsigned-x64-16.1-1.src.rpm",
+    "url": "https://kojipkgs.fedoraproject.org/packages/shim-unsigned-x64/16.1/1/src/shim-unsigned-x64-16.1-1.src.rpm",
+    "size": 2368302,
+    "sha256": "c06cd1bdde7ac2a1958678e24217869bdc583a9e7b5700ef073ff2b81f9e9546",
+    "note": "Exact shim implementation source selected by shim-16.1-7 shimverx64=16.1-1; the signed shim SRPM alone is a repackaging input."
+  }
+]

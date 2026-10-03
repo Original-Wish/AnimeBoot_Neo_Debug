@@ -1,0 +1,32 @@
+[
+  {
+    "file": "licenses/Linux-GPL-2.0.txt",
+    "url": "https://raw.githubusercontent.com/torvalds/linux/master/LICENSES/preferred/GPL-2.0",
+    "size": 18600,
+    "sha256": "8780e78a1a737e127f25a65f6d95269bffd36158dc261114de7859b490bfc5aa"
+  },
+  {
+    "file": "licenses/Linux-syscall-note.txt",
+    "url": "https://raw.githubusercontent.com/torvalds/linux/master/LICENSES/exceptions/Linux-syscall-note",
+    "size": 1258,
+    "sha256": "8e378ab93586eb55135d3bc119cce787f7324f48394777d00c34fa3d0be3303f"
+  },
+  {
+    "file": "licenses/FFmpeg-COPYING.GPLv3",
+    "url": "https://raw.githubusercontent.com/FFmpeg/FFmpeg/n4.2.2/COPYING.GPLv3",
+    "size": 35147,
+    "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+  },
+  {
+    "file": "licenses/FFmpeg-COPYING.LGPLv2.1",
+    "url": "https://raw.githubusercontent.com/FFmpeg/FFmpeg/n4.2.2/COPYING.LGPLv2.1",
+    "size": 26526,
+    "sha256": "b634ab5640e258563c536e658cad87080553df6f34f62269a21d554844e58bfe"
+  },
+  {
+    "file": "licenses/FFmpeg-LICENSE.md",
+    "url": "https://raw.githubusercontent.com/FFmpeg/FFmpeg/n4.2.2/LICENSE.md",
+    "size": 3825,
+    "sha256": "cad1218c22121b169fb1380178ab7a0b33cb38a3ff6d3915b8533d1d954f3ce7"
+  }
+]
